@@ -1,0 +1,8 @@
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    Icon(Icons.home),
+    Icon(Icons.search),
+    Icon(Icons.settings),
+  ],
+)

@@ -1,0 +1,7 @@
+Column(
+  children: [
+    Text("Name"),
+    Text("Email"),
+    Text("Phone"),
+  ],
+)

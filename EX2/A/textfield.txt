@@ -1,0 +1,6 @@
+TextField(
+  decoration: InputDecoration(
+    labelText: "Enter Name",
+    border: OutlineInputBorder(),
+  ),
+)

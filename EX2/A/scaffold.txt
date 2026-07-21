@@ -1,0 +1,8 @@
+Scaffold(
+  appBar: AppBar(
+    title: Text("Flutter Widgets"),
+  ),
+  body: Center(
+    child: Text("Welcome"),
+  ),
+)

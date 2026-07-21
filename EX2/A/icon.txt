@@ -1,0 +1,5 @@
+Icon(
+  Icons.favorite,
+  color: Colors.red,
+  size: 50,
+)

@@ -1,0 +1,20 @@
+Image.asset(
+  'assets/flutter_logo.png',
+  width: 200,
+)
+
+
+
+Internet Images
+
+Image.network(
+  'https://flutter.dev/images/flutter-logo-sharing.png',
+)
+
+
+
+//Comments
+Check for Images in Dir
+flutter:
+  assets:
+    - assets/

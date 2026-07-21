@@ -1,0 +1,8 @@
+Text(
+  'Hello Flutter!',
+  style: TextStyle(
+    fontSize: 28,
+    color: Colors.blue,
+    fontWeight: FontWeight.bold,
+  ),
+)
