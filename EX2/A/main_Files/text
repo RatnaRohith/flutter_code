@@ -1,0 +1,108 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Text Widget Demo',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Text Widget'),
+          backgroundColor: Colors.blue,
+        ),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: const [
+
+              Text(
+                'Simple Text',
+                style: TextStyle(fontSize: 24),
+              ),
+
+              SizedBox(height: 20),
+
+              Text(
+                'Bold Text',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              Text(
+                'Italic Text',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              Text(
+                'Colored Text',
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.red,
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              Text(
+                'Underlined Text',
+                style: TextStyle(
+                  fontSize: 24,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              Text(
+                'Large Blue Bold Text',
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.blue,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              Text(
+                'Centered Text',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.green,
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              Text(
+                'This is a long paragraph demonstrating how the Text widget automatically wraps to the next line when the text exceeds the available screen width.',
+                textAlign: TextAlign.justify,
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

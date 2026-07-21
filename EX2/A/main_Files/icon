@@ -1,0 +1,83 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Icons Showcase',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Flutter Icons Showcase'),
+          backgroundColor: Colors.blue,
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(20),
+          child: GridView.count(
+            crossAxisCount: 3,
+            crossAxisSpacing: 20,
+            mainAxisSpacing: 20,
+            children: const [
+              IconItem(icon: Icons.home, label: 'Home', color: Colors.blue),
+              IconItem(icon: Icons.person, label: 'Person', color: Colors.green),
+              IconItem(icon: Icons.favorite, label: 'Favorite', color: Colors.red),
+              IconItem(icon: Icons.settings, label: 'Settings', color: Colors.grey),
+              IconItem(icon: Icons.phone, label: 'Phone', color: Colors.orange),
+              IconItem(icon: Icons.email, label: 'Email', color: Colors.purple),
+              IconItem(icon: Icons.camera_alt, label: 'Camera', color: Colors.teal),
+              IconItem(icon: Icons.search, label: 'Search', color: Colors.indigo),
+              IconItem(icon: Icons.shopping_cart, label: 'Cart', color: Colors.brown),
+              IconItem(icon: Icons.star, label: 'Star', color: Colors.amber),
+              IconItem(icon: Icons.music_note, label: 'Music', color: Colors.pink),
+              IconItem(icon: Icons.flight, label: 'Flight', color: Colors.cyan),
+              IconItem(icon: Icons.school, label: 'School', color: Colors.deepOrange),
+              IconItem(icon: Icons.book, label: 'Book', color: Colors.deepPurple),
+              IconItem(icon: Icons.alarm, label: 'Alarm', color: Colors.lime),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class IconItem extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final Color color;
+
+  const IconItem({
+    super.key,
+    required this.icon,
+    required this.label,
+    required this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          icon,
+          size: 50,
+          color: color,
+        ),
+        const SizedBox(height: 8),
+        Text(
+          label,
+          style: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
+    );
+  }
+}

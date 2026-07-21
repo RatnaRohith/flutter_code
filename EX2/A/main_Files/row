@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Row Widget Example',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Row Widget'),
+          backgroundColor: Colors.blue,
+        ),
+        body: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: const [
+              Icon(
+                Icons.home,
+                color: Colors.blue,
+                size: 60,
+              ),
+              Icon(
+                Icons.favorite,
+                color: Colors.red,
+                size: 60,
+              ),
+              Icon(
+                Icons.settings,
+                color: Colors.green,
+                size: 60,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

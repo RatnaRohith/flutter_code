@@ -1,0 +1,97 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'SizedBox Demo',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('SizedBox Widget'),
+          backgroundColor: Colors.blue,
+        ),
+        body: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+
+              const Text(
+                'Flutter Widgets',
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              // Vertical Space
+              const SizedBox(height: 20),
+
+              const Icon(
+                Icons.flutter_dash,
+                size: 80,
+                color: Colors.blue,
+              ),
+
+              // Vertical Space
+              const SizedBox(height: 20),
+
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+
+                  Icon(
+                    Icons.home,
+                    size: 40,
+                    color: Colors.red,
+                  ),
+
+                  // Horizontal Space
+                  SizedBox(width: 25),
+
+                  Icon(
+                    Icons.favorite,
+                    size: 40,
+                    color: Colors.pink,
+                  ),
+
+                  // Horizontal Space
+                  SizedBox(width: 25),
+
+                  Icon(
+                    Icons.settings,
+                    size: 40,
+                    color: Colors.green,
+                  ),
+                ],
+              ),
+
+              // Vertical Space
+              const SizedBox(height: 30),
+
+              SizedBox(
+                width: 220,
+                height: 60,
+                child: ElevatedButton(
+                  onPressed: () {
+                    print("Button Pressed");
+                  },
+                  child: const Text(
+                    'Click Me',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
