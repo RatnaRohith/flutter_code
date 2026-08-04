@@ -1,0 +1,420 @@
+2b) Implement different layout structures using row, column, stack widgets
+
+// Import Flutter's Material Design library.
+// It provides widgets such as Scaffold, AppBar, Text, Row, Column, etc.
+import 'package:flutter/material.dart';
+
+
+// The main() function is the starting point of the Dart program.
+void main() {
+
+  // runApp() starts the Flutter application.
+  // MyApp is the root widget of our application.
+  runApp(const MyApp());
+}
+
+
+// MyApp is a StatelessWidget.
+// StatelessWidget means the widget's data does not change automatically.
+class MyApp extends StatelessWidget {
+
+  // Constructor of MyApp.
+  const MyApp({super.key});
+
+
+  // build() creates the user interface of MyApp.
+  @override
+  Widget build(BuildContext context) {
+
+    // MaterialApp is the root widget of the Flutter application.
+    return MaterialApp(
+
+      // Removes the DEBUG banner from the top-right corner.
+      debugShowCheckedModeBanner: false,
+
+      // LayoutDemo is the first screen shown by the application.
+      home: LayoutDemo(),
+    );
+  }
+}
+
+
+// LayoutDemo is another StatelessWidget.
+class LayoutDemo extends StatelessWidget {
+
+  // Constructor of LayoutDemo.
+  const LayoutDemo({super.key});
+
+
+  // Builds the user interface of LayoutDemo.
+  @override
+  Widget build(BuildContext context) {
+
+    // Scaffold provides the basic screen structure.
+    return Scaffold(
+
+      // AppBar creates the top application bar.
+      appBar: AppBar(
+
+        // Displays the title in the AppBar.
+        title: const Text("Row, Column & Stack Demo"),
+
+        // Sets the AppBar background color to blue.
+        backgroundColor: Colors.blue,
+      ),
+
+
+      // body contains the main content of the screen.
+      body: SingleChildScrollView(
+
+        // SingleChildScrollView allows the screen to scroll
+        // when the content is larger than the screen.
+        child: Padding(
+
+          // Adds 16 pixels of space around the content.
+          padding: const EdgeInsets.all(16.0),
+
+          // Column arranges widgets vertically.
+          child: Column(
+
+            // Aligns the children toward the start (left side).
+            crossAxisAlignment: CrossAxisAlignment.start,
+
+            // Contains all the widgets inside the Column.
+            children: [
+
+
+              // ------------------------------------------------
+              // ROW EXAMPLE
+              // ------------------------------------------------
+
+              // Displays the heading "1. Row Widget".
+              const Text(
+                "1. Row Widget",
+
+                // Text formatting.
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+
+              // Adds 10 pixels of vertical space.
+              const SizedBox(height: 10),
+
+
+              // Row arranges its children horizontally.
+              Row(
+
+                // Distributes the children evenly across the Row.
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                // Widgets inside the Row.
+                children: [
+
+                  // First Container.
+                  Container(
+                    width: 70,
+                    height: 70,
+                    color: Colors.red,
+
+                    // Places the letter A in the center.
+                    child: const Center(
+                      child: Text("A"),
+                    ),
+                  ),
+
+
+                  // Second Container.
+                  Container(
+                    width: 70,
+                    height: 70,
+                    color: Colors.green,
+
+                    // Places the letter B in the center.
+                    child: const Center(
+                      child: Text("B"),
+                    ),
+                  ),
+
+
+                  // Third Container.
+                  Container(
+                    width: 70,
+                    height: 70,
+                    color: Colors.orange,
+
+                    // Places the letter C in the center.
+                    child: const Center(
+                      child: Text("C"),
+                    ),
+                  ),
+                ],
+              ),
+
+
+              // Adds 30 pixels of vertical space.
+              const SizedBox(height: 30),
+
+
+              // ------------------------------------------------
+              // COLUMN EXAMPLE
+              // ------------------------------------------------
+
+              // Displays the heading "2. Column Widget".
+              const Text(
+                "2. Column Widget",
+
+                // Text formatting.
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+
+              // Adds 10 pixels of vertical space.
+              const SizedBox(height: 10),
+
+
+              // Column arranges its children vertically.
+              Column(
+                children: [
+
+                  // First Container.
+                  Container(
+                    width: 150,
+                    height: 50,
+                    color: Colors.purple,
+
+                    // Places "First" in the center.
+                    child: const Center(
+                      child: Text("First"),
+                    ),
+                  ),
+
+
+                  // Adds 10 pixels between containers.
+                  const SizedBox(height: 10),
+
+
+                  // Second Container.
+                  Container(
+                    width: 150,
+                    height: 50,
+                    color: Colors.teal,
+
+                    // Places "Second" in the center.
+                    child: const Center(
+                      child: Text("Second"),
+                    ),
+                  ),
+
+
+                  // Adds 10 pixels between containers.
+                  const SizedBox(height: 10),
+
+
+                  // Third Container.
+                  Container(
+                    width: 150,
+                    height: 50,
+                    color: Colors.amber,
+
+                    // Places "Third" in the center.
+                    child: const Center(
+                      child: Text("Third"),
+                    ),
+                  ),
+                ],
+              ),
+
+
+              // Adds 30 pixels of vertical space.
+              const SizedBox(height: 30),
+
+
+              // ------------------------------------------------
+              // STACK EXAMPLE
+              // ------------------------------------------------
+
+              // Displays the heading "3. Stack Widget".
+              const Text(
+                "3. Stack Widget",
+
+                // Text formatting.
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+
+              // Adds 10 pixels of vertical space.
+              const SizedBox(height: 10),
+
+
+              // Centers the Stack on the screen.
+              Center(
+                child: Stack(
+
+                  // Aligns the children in the center of the Stack.
+                  alignment: Alignment.center,
+
+                  // Widgets are placed one on top of another.
+                  children: [
+
+                    // Largest blue square.
+                    Container(
+                      width: 220,
+                      height: 220,
+                      color: Colors.blue,
+                    ),
+
+
+                    // Green square is placed over the blue square.
+                    Container(
+                      width: 150,
+                      height: 150,
+                      color: Colors.green,
+                    ),
+
+
+                    // Red square is placed over the green square.
+                    Container(
+                      width: 80,
+                      height: 80,
+                      color: Colors.red,
+                    ),
+
+
+                    // Text is placed over all the containers.
+                    const Text(
+                      "Stack",
+
+                      // Text formatting.
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+Explanation
+Understand the three layouts
+1. Row — Horizontal layout
+Row(
+  children: [
+    Text("A"),
+    Text("B"),
+    Text("C"),
+  ],
+)
+
+The widgets are arranged left to right:
+
+A       B       C
+→       →       →
+
+In your program:
+
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    Container(...),
+    Container(...),
+    Container(...),
+  ],
+)
+
+spaceEvenly distributes equal space around the children.
+
+2. Column — Vertical layout
+Column(
+  children: [
+    Text("First"),
+    Text("Second"),
+    Text("Third"),
+  ],
+)
+
+The widgets are arranged top to bottom:
+
+First
+  ↓
+Second
+  ↓
+Third
+
+Your program uses:
+
+Column(
+  children: [
+    Container(...),
+    SizedBox(height: 10),
+    Container(...),
+    SizedBox(height: 10),
+    Container(...),
+  ],
+)
+
+SizedBox(height: 10) creates 10 pixels of vertical space.
+
+3. Stack — Overlapping layout
+
+A Stack places widgets on top of each other.
+
+Your program creates:
+
+┌─────────────────────┐
+│      BLUE           │
+│    ┌───────────┐    │
+│    │   GREEN   │    │
+│    │   ┌────┐  │    │
+│    │   │RED │  │    │
+│    │   │Stack│  │    │
+│    │   └────┘  │    │
+│    └───────────┘    │
+└─────────────────────┘
+
+The order is important:
+
+children: [
+  Blue,
+  Green,
+  Red,
+  Text("Stack"),
+]
+
+The first widget is at the back, and later widgets appear on top.
+
+Important concepts to remember
+Widget	Purpose	Direction
+Row	Arrange widgets horizontally	→
+Column	Arrange widgets vertically	↓
+Stack	Place widgets on top of each other	Overlap
+Center	Center a widget	Center
+Container	Create and style a box	—
+SizedBox	Add fixed space	—
+Padding	Add space around content	—
+SingleChildScrollView	Make content scrollable	—
+Simple memory trick
+ROW    →  Left to Right
+
+COLUMN ↓  Top to Bottom
+
+STACK  ⬆  One widget over another
+
+

@@ -1,0 +1,153 @@
+ii) Image Widget
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Asset Image Example',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Image Widget'),
+          backgroundColor: Colors.blue,
+        ),
+        body: Center(
+          child: Image.asset(
+            'assets/flutter-logo.png',
+            width: 250,
+            height: 250,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+Change pubyaml
+flutter:
+    assets:
+        - images/
+
+
+
+1. Project folder structure
+
+Create an assets folder in your Flutter project:
+
+my_flutter_app/
+│
+├── lib/
+│   └── main.dart
+│
+├── assets/
+│   └── flutter-logo.png
+│
+└── pubspec.yaml
+2. Add the asset to pubspec.yaml
+
+Open pubspec.yaml and add:
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/flutter-logo.png
+
+Important: YAML indentation matters. Use spaces, not tabs.
+
+Then run:
+
+flutter pub get
+3. main.dart
+
+Your program can remain as:
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Asset Image Example',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Image Widget'),
+          backgroundColor: Colors.blue,
+        ),
+        body: Center(
+          child: Image.asset(
+            'assets/flutter-logo.png',
+            width: 250,
+            height: 250,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+import 'package:flutter/material.dart';	Imports Flutter Material Design widgets.
+void main()	Starting point of the Dart program.
+runApp(const MyApp());	Starts the Flutter application.
+class MyApp extends StatelessWidget	Creates the main application widget.
+build()	Builds the user interface.
+MaterialApp	Provides the basic structure of the Flutter app.
+Scaffold	Provides the screen structure.
+AppBar	Creates the top application bar.
+Text('Image Widget')	Displays the title.
+Center	Places the image in the center of the screen.
+Image.asset()	Loads an image from the project's assets folder.
+'assets/flutter-logo.png'	Path of the image file.
+width: 250	Sets image width to 250 pixels.
+height: 250	Sets image height to 250 pixels.
+Output
+
+The app will display:
+
+┌──────────────────────────────┐
+│        Image Widget          │  ← AppBar
+├──────────────────────────────┤
+│                              │
+│       Flutter Logo           │
+│         (250 × 250)          │
+│                              │
+└──────────────────────────────┘
+Common error
+
+If you get:
+
+Unable to load asset: assets/flutter-logo.png
+
+check these three things:
+
+The file is actually inside assets/.
+The filename is exactly flutter-logo.png.
+pubspec.yaml contains:
+assets:
+  - assets/flutter-logo.png
+
+Then run:
+
+flutter pub get
+
+and restart the application.
+

@@ -1,0 +1,357 @@
+iii) Text Widget
+
+Code:
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Text Widget Demo',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Text Widget'),
+          backgroundColor: Colors.blue,
+        ),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: const [
+
+              Text(
+                'Simple Text',
+                style: TextStyle(fontSize: 24),
+              ),
+
+              SizedBox(height: 20),
+
+              Text(
+                'Bold Text',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              Text(
+                'Italic Text',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              Text(
+                'Colored Text',
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.red,
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              Text(
+                'Underlined Text',
+                style: TextStyle(
+                  fontSize: 24,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              Text(
+                'Large Blue Bold Text',
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.blue,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              Text(
+                'Centered Text',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.green,
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              Text(
+                'This is a long paragraph demonstrating how the Text widget automatically wraps to the next line when the text exceeds the available screen width.',
+                textAlign: TextAlign.justify,
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+1. Import Flutter
+import 'package:flutter/material.dart';
+Imports Flutter's Material Design library.
+Provides widgets like MaterialApp, Scaffold, AppBar, Text, Column, etc.
+2. main() function
+void main() {
+  runApp(const MyApp());
+}
+main() is the starting point of the Dart program.
+runApp() launches the Flutter application.
+MyApp is the main widget.
+3. Create MyApp
+class MyApp extends StatelessWidget {
+Creates a widget named MyApp.
+StatelessWidget means the widget's state does not change during execution.
+const MyApp({super.key});
+Constructor for MyApp.
+super.key passes the key to the parent widget.
+4. build() method
+@override
+Widget build(BuildContext context) {
+build() creates the user interface.
+It returns the widgets that should appear on the screen.
+5. MaterialApp
+return MaterialApp(
+  debugShowCheckedModeBanner: false,
+  title: 'Text Widget Demo',
+debugShowCheckedModeBanner
+debugShowCheckedModeBanner: false,
+
+Removes the DEBUG label from the top-right corner.
+
+title
+title: 'Text Widget Demo',
+
+Sets the application title.
+
+6. Scaffold
+home: Scaffold(
+
+Scaffold provides the basic screen structure.
+
+It contains:
+
+AppBar
+body
+7. AppBar
+appBar: AppBar(
+  title: const Text('Text Widget'),
+  backgroundColor: Colors.blue,
+),
+
+Creates the top bar.
+
+title → displays Text Widget
+backgroundColor → makes the AppBar blue
+8. SingleChildScrollView
+body: SingleChildScrollView(
+  padding: const EdgeInsets.all(20),
+
+SingleChildScrollView allows the user to scroll vertically if the content is larger than the screen.
+
+padding: const EdgeInsets.all(20),
+
+Adds 20 pixels of space around the content.
+
+9. Column
+child: Column(
+  crossAxisAlignment: CrossAxisAlignment.stretch,
+
+Column arranges widgets vertically, one below another.
+
+The structure is:
+
+Column
+ ├── Simple Text
+ ├── SizedBox
+ ├── Bold Text
+ ├── SizedBox
+ ├── Italic Text
+ ├── SizedBox
+ ├── Colored Text
+ ├── SizedBox
+ ├── Underlined Text
+ ├── SizedBox
+ ├── Large Blue Bold Text
+ ├── SizedBox
+ ├── Centered Text
+ ├── SizedBox
+ └── Long Paragraph
+10. Simple Text
+Text(
+  'Simple Text',
+  style: TextStyle(fontSize: 24),
+),
+
+Displays normal text with a font size of 24.
+
+11. Bold Text
+Text(
+  'Bold Text',
+  style: TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+  ),
+),
+fontWeight: FontWeight.bold
+
+Makes the text bold.
+
+12. Italic Text
+Text(
+  'Italic Text',
+  style: TextStyle(
+    fontSize: 24,
+    fontStyle: FontStyle.italic,
+  ),
+),
+fontStyle: FontStyle.italic
+
+Makes the text italic.
+
+13. Colored Text
+Text(
+  'Colored Text',
+  style: TextStyle(
+    fontSize: 24,
+    color: Colors.red,
+  ),
+),
+color: Colors.red
+
+Makes the text red.
+
+14. Underlined Text
+Text(
+  'Underlined Text',
+  style: TextStyle(
+    fontSize: 24,
+    decoration: TextDecoration.underline,
+  ),
+),
+decoration: TextDecoration.underline
+
+Adds an underline to the text.
+
+15. Large Blue Bold Text
+Text(
+  'Large Blue Bold Text',
+  style: TextStyle(
+    fontSize: 30,
+    color: Colors.blue,
+    fontWeight: FontWeight.bold,
+  ),
+),
+
+Here three properties are used:
+
+fontSize: 30
+      ↓
+Large text
+
+color: Colors.blue
+      ↓
+Blue text
+
+fontWeight: FontWeight.bold
+      ↓
+Bold text
+16. Centered Text
+Text(
+  'Centered Text',
+  textAlign: TextAlign.center,
+  style: TextStyle(
+    fontSize: 24,
+    color: Colors.green,
+  ),
+),
+textAlign
+textAlign: TextAlign.center,
+
+Centers the text within the available width.
+
+The text is also green because:
+
+color: Colors.green
+17. Long Paragraph
+Text(
+  'This is a long paragraph demonstrating how the Text widget automatically wraps to the next line when the text exceeds the available screen width.',
+  textAlign: TextAlign.justify,
+  style: TextStyle(
+    fontSize: 18,
+  ),
+),
+
+This demonstrates a long text paragraph.
+
+Automatic wrapping
+
+When the text reaches the edge of the screen, Flutter automatically moves the remaining text to the next line.
+
+TextAlign.justify
+textAlign: TextAlign.justify,
+
+Attempts to align the paragraph evenly along both the left and right edges.
+
+18. SizedBox
+
+You have several:
+
+SizedBox(height: 20),
+
+This creates 20 pixels of vertical space between the Text widgets.
+
+For example:
+
+Simple Text
+     ↓
+   20 px
+     ↓
+Bold Text
+Important Text widget properties
+Property	Purpose	Example
+fontSize	Changes text size	fontSize: 24
+fontWeight	Makes text bold	FontWeight.bold
+fontStyle	Makes text italic	FontStyle.italic
+color	Changes text color	Colors.red
+decoration	Adds underline	TextDecoration.underline
+textAlign	Aligns text	TextAlign.center
+TextAlign.justify	Justifies paragraph	TextAlign.justify
+Simple concept
+Text Widget
+    │
+    ├── Simple
+    ├── Bold
+    ├── Italic
+    ├── Colored
+    ├── Underlined
+    ├── Large + Blue + Bold
+    ├── Centered
+    └── Long Paragraph
+
+Main purpose of this program: to understand how the Flutter Text widget displays and formats text using TextStyle.
+

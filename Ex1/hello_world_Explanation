@@ -1,0 +1,272 @@
+Experiment 1b:
+Write a sample dart program to understand the language basics
+void main() {
+  // Variables and data types
+  String name = "John Smith";
+  int age = 25;
+  double marks = 85.5;
+  bool isStudent = true;
+
+  // Display values
+  print("Name: $name");
+  print("Age: $age");
+  print("Marks: $marks");
+  print("Student: $isStudent");
+
+  // Arithmetic operators
+  int a = 10;
+  int b = 5;
+
+  print("Addition: ${a + b}");
+  print("Subtraction: ${a - b}");
+  print("Multiplication: ${a * b}");
+  print("Division: ${a / b}");
+
+  // If-else statement
+  if (marks >= 40) {
+    print("Result: Pass");
+  } else {
+    print("Result: Fail");
+  }
+
+  // For loop
+  print("Numbers from 1 to 5:");
+  for (int i = 1; i <= 5; i++) {
+    print(i);
+  }
+
+  // Function call
+  greet(name);
+}
+
+// Function
+void greet(String name) {
+  print("Hello, $name!");
+}
+
+Experiment 1b:
+Write a program to display “hello world” using flutter.
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Center(
+          child: Text(
+            'Hello, World!',
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+Each Block of code:
+
+import 'package:flutter/material.dart'; → Imports Flutter Material UI widgets.
+main() → Starting point of the application.
+runApp(const MyApp()); → Launches the Flutter app.
+MyApp extends StatelessWidget → Creates a widget that does not maintain changing state.
+MaterialApp → Provides the basic application structure.
+Scaffold → Provides the screen layout.
+Center → Places the content in the center.
+Text → Displays Hello, World!
+TextStyle → Makes the text 30 pixels and bold.
+
+Brief Explanation
+1. Import Flutter
+
+import 'package:flutter/material.dart';
+
+This imports Flutter's Material Design widgets.
+
+It allows us to use widgets such as:
+
+MaterialApp
+Scaffold
+Text
+Center
+
+2. Main function
+
+void main() {
+
+main() is the starting point of every Dart program.
+
+When you run the Flutter application, execution starts here.
+
+3. Start the Flutter application
+
+runApp(const MyApp());
+
+runApp() tells Flutter:
+
+"Start my application using the MyApp widget."
+
+MyApp() is the main widget we created below.
+
+const means the widget can be created as a compile-time constant when its values don't change.
+
+4. Create MyApp class
+
+class MyApp extends StatelessWidget {
+
+Here we create a class called MyApp.
+
+StatelessWidget means the widget does not have changing state.
+
+For example, a simple "Hello World" screen does not need to change.
+
+5. Constructor
+
+const MyApp({super.key});
+
+This is the constructor for MyApp.
+
+super.key passes the widget's key to the parent StatelessWidget.
+
+For beginners, you can think of key as an identifier Flutter can use to identify a widget.
+
+6. Build method
+
+@override
+Widget build(BuildContext context) {
+
+build() tells Flutter what should appear on the screen.
+
+@override means we are providing our own implementation of the build() method inherited from StatelessWidget.
+
+BuildContext context gives Flutter information about where this widget is located in the widget tree.
+
+7. Return MaterialApp
+
+return const MaterialApp(
+
+MaterialApp is the basic structure for a Flutter Material Design application.
+
+It provides things such as:
+
+App structure
+Navigation
+Themes
+Material Design support
+
+8. Remove debug banner
+debugShowCheckedModeBanner: false,
+Normally, Flutter displays a DEBUG banner in the top-right corner during development.
+Setting it to false removes that banner.
+
+9. Define the home screen
+home: Scaffold(
+home specifies the first screen of the application.
+Scaffold provides the basic screen structure.
+
+A Scaffold can contain:
+appBar
+body
+drawer
+floatingActionButton
+bottomNavigationBar
+Here, we only use body.
+
+10. Create the body
+body: Center(
+body is the main content area of the screen.
+Center places its child in the center of the screen.
+
+11. Add Text
+child: Text(
+child means the widget contained inside another widget.
+Here, the Center widget contains a Text widget.
+
+12. Display the message
+'Hello, World!',
+This is the text that appears on the screen.
+The output will be:
+
+Hello, World!
+
+13. Add text styling
+
+style: TextStyle(
+
+TextStyle controls how the text looks.
+
+For example:
+
+Font size
+Font weight
+Font color
+Font family
+
+14. Set font size
+
+fontSize: 30,
+
+This makes the text 30 pixels in size.
+
+15. Make text bold
+
+fontWeight: FontWeight.bold,
+
+This makes Hello, World! appear in bold.
+
+Understand the widget hierarchy
+
+The most important concept for beginners is the widget tree:
+
+MyApp
+  ↓
+MaterialApp
+  ↓
+Scaffold
+  ↓
+Center
+  ↓
+Text
+  ↓
+"Hello, World!"
+
+Think of it like containers inside containers:
+
+Application
+   └── MaterialApp
+        └── Scaffold
+             └── Center
+                  └── Text
+Final output
+
+The application displays:
+
+              Hello, World!
+
+The text is centered, bold, and 30 pixels in size.
+
+Easy way to remember
+Flutter code	Meaning
+main()	Program starts here
+runApp()	Starts Flutter app
+StatelessWidget	Widget whose data doesn't change
+build()	Defines what appears on screen
+MaterialApp	Main application
+Scaffold	Basic screen structure
+body	Main screen content
+Center	Centers its child
+Text	Displays text
+TextStyle	Changes text appearance
+fontSize	Text size
+fontWeight	Text thickness

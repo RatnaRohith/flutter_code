@@ -1,0 +1,495 @@
+iv) Container widget
+
+Code:
+// Import Flutter Material Design widgets
+import 'package:flutter/material.dart';
+
+// Starting point of the Dart program
+void main() {
+  // Start the Flutter application
+  runApp(const MyApp());
+}
+
+// Create the main application widget
+class MyApp extends StatelessWidget {
+  
+  // Constructor
+  const MyApp({super.key});
+
+  // Build the user interface
+  @override
+  Widget build(BuildContext context) {
+
+    // Root widget of the application
+    return MaterialApp(
+
+      // Remove DEBUG banner
+      debugShowCheckedModeBanner: false,
+
+      // Application title
+      title: 'Container Widget Example',
+
+      // Main screen
+      home: Scaffold(
+
+        // Top AppBar
+        appBar: AppBar(
+
+          // AppBar title
+          title: const Text('Container Widget'),
+
+          // AppBar background color
+          backgroundColor: Colors.blue,
+        ),
+
+        // Main body
+        body: Center(
+
+          // Container/Box
+          child: Container(
+
+            // Container width
+            width: 250,
+
+            // Container height
+            height: 150,
+
+            // Space inside Container
+            padding: const EdgeInsets.all(20),
+
+            // Container decoration
+            decoration: BoxDecoration(
+
+              // Orange background
+              color: Colors.orange,
+
+              // Rounded corners
+              borderRadius: BorderRadius.circular(20),
+
+              // Black border
+              border: Border.all(
+                color: Colors.black,
+                width: 2,
+              ),
+
+              // Shadow
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.grey,
+                  blurRadius: 10,
+
+                  // Shadow moves right and down
+                  offset: Offset(5, 5),
+                ),
+              ],
+            ),
+
+            // Center the text inside Container
+            child: const Center(
+
+              // Display text
+              child: Text(
+                'Hello Flutter!',
+
+                // Text formatting
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+1. Import Flutter library
+import 'package:flutter/material.dart';
+
+Explanation:
+This imports Flutter's Material Design library.
+
+It gives us widgets such as:
+
+MaterialApp
+Scaffold
+AppBar
+Container
+Center
+Text
+2. Main function
+void main() {
+  runApp(const MyApp());
+}
+
+Explanation:
+
+void main()
+
+main() is the starting point of every Dart program.
+
+runApp(const MyApp());
+
+runApp() starts the Flutter application and displays the MyApp widget.
+
+3. Create MyApp class
+class MyApp extends StatelessWidget {
+
+Explanation:
+
+class MyApp creates a class named MyApp.
+
+extends StatelessWidget
+
+This means MyApp is a Flutter widget whose data does not change while the application is running.
+
+4. Constructor
+const MyApp({super.key});
+
+Explanation:
+
+This is the constructor of MyApp.
+
+const → Creates a constant widget when possible.
+super.key → Passes the widget key to the parent class.
+5. Build method
+@override
+Widget build(BuildContext context) {
+
+Explanation:
+
+@override
+
+Indicates that we are overriding the build() method from StatelessWidget.
+
+Widget build(BuildContext context)
+
+The build() method creates and returns the user interface.
+
+6. MaterialApp
+return MaterialApp(
+
+Explanation:
+
+MaterialApp is the main/root widget of the application.
+
+It provides Material Design features.
+
+7. Remove debug banner
+debugShowCheckedModeBanner: false,
+
+Explanation:
+
+Normally Flutter displays a DEBUG banner in the top-right corner.
+
+Setting it to false removes that banner.
+
+8. Application title
+title: 'Container Widget Example',
+
+Explanation:
+
+Sets the title of the Flutter application.
+
+9. Scaffold
+home: Scaffold(
+
+Explanation:
+
+Scaffold provides the basic structure of a Flutter screen.
+
+It can contain:
+
+AppBar
+Body
+FloatingActionButton
+Drawer
+BottomNavigationBar
+10. AppBar
+appBar: AppBar(
+
+Explanation:
+
+Creates the top bar of the application.
+
+11. AppBar title
+title: const Text('Container Widget'),
+
+Explanation:
+
+Displays Container Widget in the AppBar.
+
+Text() is used to display text.
+
+12. AppBar background color
+backgroundColor: Colors.blue,
+
+Explanation:
+
+Makes the AppBar background blue.
+
+13. Close AppBar
+),
+
+This closes the AppBar.
+
+So this complete section:
+
+appBar: AppBar(
+  title: const Text('Container Widget'),
+  backgroundColor: Colors.blue,
+),
+
+creates the blue AppBar with the title Container Widget.
+
+14. Body
+body: Center(
+
+Explanation:
+
+body contains the main content of the screen.
+
+Center places its child in the center of the available space.
+
+15. Container
+child: Container(
+
+Explanation:
+
+Creates a Container.
+
+Think of a Container as a box that can have:
+
+Width
+Height
+Padding
+Color
+Border
+Rounded corners
+Shadow
+Child widget
+16. Container width
+width: 250,
+
+Explanation:
+
+Sets the width of the Container to 250 pixels.
+
+17. Container height
+height: 150,
+
+Explanation:
+
+Sets the height of the Container to 150 pixels.
+
+Therefore:
+
+Width  = 250
+Height = 150
+18. Padding
+padding: const EdgeInsets.all(20),
+
+Explanation:
+
+padding creates space inside the Container.
+
+EdgeInsets.all(20)
+
+means 20 pixels of padding on:
+
+Top
+Bottom
+Left
+Right
+
+Example:
+
+┌─────────────────────────┐
+│     ← 20 pixels →       │
+│                         │
+│      Hello Flutter!     │
+│                         │
+└─────────────────────────┘
+19. Decoration
+decoration: BoxDecoration(
+
+Explanation:
+
+BoxDecoration is used to decorate the Container.
+
+Here we use it for:
+
+Background color
+Rounded corners
+Border
+Shadow
+20. Container color
+color: Colors.orange,
+
+Explanation:
+
+Makes the Container orange.
+
+21. Rounded corners
+borderRadius: BorderRadius.circular(20),
+
+Explanation:
+
+Makes the corners rounded.
+
+BorderRadius.circular(20)
+
+means the corner radius is 20 pixels.
+
+22. Border
+border: Border.all(
+
+Explanation:
+
+Creates a border around the Container.
+
+23. Border color
+color: Colors.black,
+
+Explanation:
+
+Makes the border black.
+
+24. Border width
+width: 2,
+
+Explanation:
+
+Sets the border thickness to 2 pixels.
+
+Complete border:
+
+border: Border.all(
+  color: Colors.black,
+  width: 2,
+),
+25. Box shadow
+boxShadow: const [
+
+Explanation:
+
+Creates a list of shadows for the Container.
+
+26. BoxShadow
+BoxShadow(
+
+Creates one shadow.
+
+27. Shadow color
+color: Colors.grey,
+
+Explanation:
+
+Makes the shadow grey.
+
+28. Shadow blur
+blurRadius: 10,
+
+Explanation:
+
+Controls how blurred the shadow is.
+
+Higher value → more blurred shadow.
+
+29. Shadow position
+offset: Offset(5, 5),
+
+Explanation:
+
+Moves the shadow:
+
+5 pixels → right
+5 pixels ↓ down
+
+So:
+
+Offset(5, 5)
+
+means:
+
+X = 5
+Y = 5
+30. Close BoxShadow and BoxDecoration
+),
+
+The first ) closes BoxShadow.
+
+The next closing ) closes BoxDecoration.
+
+31. Container child
+child: const Center(
+
+Explanation:
+
+The Container contains a Center widget.
+
+The Center makes the text appear in the center of the Container.
+
+32. Text widget
+child: Text(
+  'Hello Flutter!',
+
+Explanation:
+
+Displays:
+
+Hello Flutter!
+
+inside the Container.
+
+33. Text style
+style: TextStyle(
+
+Explanation:
+
+TextStyle is used to customize the appearance of the text.
+
+34. Font size
+fontSize: 24,
+
+Explanation:
+
+Sets the text size to 24 pixels.
+
+35. Text color
+color: Colors.white,
+
+Explanation:
+
+Makes the text white.
+
+36. Bold text
+fontWeight: FontWeight.bold,
+
+Explanation:
+
+Makes Hello Flutter! bold.
+
+37. Closing brackets
+),
+),
+),
+),
+);
+
+These close the widgets in reverse order:
+
+TextStyle
+   ↓
+Text
+   ↓
+Center
+   ↓
+Container
+   ↓
+Scaffold / MaterialApp
+

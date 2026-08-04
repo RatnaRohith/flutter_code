@@ -1,0 +1,121 @@
+2 a)Explore various flutter widgets(Text, image , Container etc.)
+
+i) Implementing Center widget
+
+Code
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Center Widget Example',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Center Widget'),
+          backgroundColor: Colors.blue,
+        ),
+        body: const Center(
+          child: Text(
+            'Hello Flutter!',
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+              color: Colors.blue,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+Line-by-line explanation
+import 'package:flutter/material.dart';
+Imports Flutter's Material Design library.
+Gives access to widgets such as MaterialApp, Scaffold, AppBar, Text, and Center.
+void main() {
+  runApp(const MyApp());
+}
+main() is the starting point of the Dart program.
+runApp() starts the Flutter application.
+MyApp() is the main widget of the application.
+const means the widget can be created as a compile-time constant.
+class MyApp extends StatelessWidget {
+Creates a class called MyApp.
+extends StatelessWidget means MyApp is a widget whose data does not change dynamically.
+const MyApp({super.key});
+This is the constructor of MyApp.
+super.key passes the widget key to the parent class.
+@override
+Widget build(BuildContext context) {
+build() describes what should appear on the screen.
+BuildContext provides information about where the widget is located in the widget tree.
+return MaterialApp(
+Creates the main application structure.
+Provides Material Design features.
+debugShowCheckedModeBanner: false,
+Removes the DEBUG banner from the top-right corner.
+title: 'Center Widget Example',
+Gives the application a title.
+home: Scaffold(
+Scaffold provides the basic screen structure.
+It can contain an AppBar, body, floating buttons, drawer, etc.
+appBar: AppBar(
+Creates the top application bar.
+title: const Text('Center Widget'),
+Displays Center Widget in the AppBar.
+backgroundColor: Colors.blue,
+Makes the AppBar blue.
+The important part: Center
+body: const Center(
+  child: Text(
+    'Hello Flutter!',
+body contains the main screen content.
+Center places its child in the center of the available space.
+Text displays "Hello Flutter!".
+style: TextStyle(
+  fontSize: 30,
+  fontWeight: FontWeight.bold,
+  color: Colors.blue,
+),
+
+This changes the text appearance:
+
+Property	Meaning
+fontSize: 30	Text size is 30
+fontWeight: FontWeight.bold	Makes text bold
+color: Colors.blue	Makes text blue
+Widget tree
+
+The program can be understood as:
+
+MyApp
+ └── MaterialApp
+      └── Scaffold
+           ├── AppBar
+           │    └── Text("Center Widget")
+           │
+           └── Center
+                └── Text("Hello Flutter!")
+Main concept
+
+The most important code is:
+
+Center(
+  child: Text('Hello Flutter!'),
+)
+
+The Center widget takes one child and positions that child at the center of its available space.
+
+Output: A blue AppBar at the top with Center Widget, and Hello Flutter! displayed in bold blue text at the center of the screen.
+
+
