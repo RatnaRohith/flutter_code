@@ -1,0 +1,22 @@
+EXP:2a:-
+STEP-1:-Go to file manager select D drive create a new folder give name (Experiment) Exp2a
+	
+STEP-2:-open Exp2a folder type cmd in the path of the directory and press enter
+
+Step 3: Type code . in the CMD to open vs code
+
+STEP-4:-Go to terminal and select new terminal or use shortcut “ctrl + shift + `” 
+
+Step 5:
+After opening the terminal create an app using command "flutter create app_name(app2a)"
+
+STEP-6:- You will see file structure on the left side of your screen.Click on app2a(flutter directory) to extend the app directory.
+
+Step 7:
+click on lib and open  "main.dart" and remove basic code and write the code for the current experiment
+
+Step 8:
+In the terminal type “cd app_name” to enter the flutter project you just created
+
+Step 9:
+Type “flutter run” to execute the current flutter project

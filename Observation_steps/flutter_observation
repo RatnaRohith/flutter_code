@@ -1,0 +1,26 @@
+How to write flutter observation and record
+
+Experiment 1
+AIM : 
+
+Flutter installation Verification
+Open CMD using Win + R type CMD and presss Enter
+Check flutter –version for verifying flutter verification
+
+Flutter Project Creation
+Step 1: Open VS code 
+Step 2: Ctrl + Shift + N 
+Step 3: Ctrl + O
+Step 4: Open Desired App Location
+Step 5: Create new directory and name it accordingly
+Step 6: Then Select that Directory
+Step 7: Open Terminal Using Ctrl + Shift + `
+Step 8 : Create flutter app_name
+Step 9: cd app_name
+Step 10: flutter run
+Step 11: Once execution done successfully, open the lib Folder from the file structure and open main.dart file
+Step 12: Replace the main.dart file accordingly to the experiment and save the dart file.
+Step 13: Flutter Code:
+Step 14 : Execute the flutter project using flutter run
+Flutter Code:
+Output:

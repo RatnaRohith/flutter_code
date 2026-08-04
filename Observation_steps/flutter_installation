@@ -1,0 +1,26 @@
+Step1
+Download Flutter SDK from browser
+Step 2:
+Open desired folder location for flutter installation and extract the flutter SDK
+Step 3:
+Search for System environment variables and set path for flutter from path variable from the list
+Step 4:
+Set Flutter/bin directory for system variables and close the window
+Step 5:
+Now check flutter installation from command prompt by typing “flutter –version”
+Step 6:
+Now download and install VS code . 
+Step 7:
+Open VS Code and create a new window using Ctrl + Shift + N
+Step 8:
+Next create a new directory from file explorer by typing ctrl + 0 
+Step 9:
+Create a new directory for flutter app creation and open it in VS code
+Step 10:
+Open VS code terminal and type “flutter create app_name” to create a new flutter application
+Step 11
+Type “cd app_name” to change directory to app_name(flutter directory)
+Step 12:
+Type “flutter run” to run flutter application
+
+
