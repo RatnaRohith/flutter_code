@@ -1,0 +1,459 @@
+import 'package:flutter/material.dart';
+Explanation
+import is used to include external libraries.
+material.dart provides Material Design widgets like:
+MaterialApp
+Scaffold
+AppBar
+Text
+Card
+GridView
+ListView
+Icon
+
+Without this import, Flutter won't recognize these widgets.
+
+main() Function
+void main() {
+  runApp(const MyApp());
+}
+Explanation
+
+Every Flutter app starts execution from main().
+
+runApp() tells Flutter which widget should be displayed first.
+
+Here,
+
+runApp(MyApp)
+
+means
+
+Start the application with MyApp widget.
+MyApp Class
+class MyApp extends StatelessWidget {
+Explanation
+
+A class defines a blueprint.
+
+MyApp is the root widget.
+
+It extends
+
+StatelessWidget
+
+which means
+
+UI does not change by itself.
+No mutable state.
+Built only from the provided configuration.
+Constructor
+const MyApp({super.key});
+Explanation
+
+This creates the object.
+
+const
+
+Improves performance.
+Object becomes immutable.
+
+super.key
+
+Passes the key to the parent widget.
+Helps Flutter efficiently identify and rebuild widgets.
+build() Method
+@override
+Widget build(BuildContext context)
+Explanation
+
+Every widget must implement build().
+
+Flutter calls this whenever the UI needs rebuilding.
+
+It must return another widget.
+
+MaterialApp
+return MaterialApp(
+
+MaterialApp is the root of a Material Design application.
+
+It provides
+
+Navigation
+Theme
+Routing
+Fonts
+Material styling
+Remove Debug Banner
+debugShowCheckedModeBanner: false,
+
+Normally Flutter shows
+
+DEBUG
+
+on the top-right corner.
+
+Setting this to false removes it.
+
+Home Screen
+home: const ResponsiveHome(),
+
+The first screen displayed is
+
+ResponsiveHome
+ResponsiveHome Widget
+class ResponsiveHome extends StatelessWidget {
+
+Again,
+
+This screen has no changing state.
+
+Detect Screen Width
+double width = MediaQuery.of(context).size.width;
+
+This is the most important line.
+
+MediaQuery provides information about the device.
+
+Examples:
+
+Screen width
+
+Screen height
+
+Orientation
+
+Pixel density
+
+Here,
+
+width
+
+stores the screen width.
+
+Example
+
+Mobile
+
+390
+
+Tablet
+
+800
+
+Desktop
+
+1400
+Variable to Store Layout
+Widget body;
+
+This variable will later hold
+
+either
+
+mobileLayout()
+
+tabletLayout()
+
+desktopLayout()
+Responsive Decision
+if (width < 600) {
+
+If screen width is below
+
+600 pixels
+
+Display
+
+mobileLayout()
+else if (width < 1024)
+
+If width is between
+
+600 and 1023
+
+Display
+
+tabletLayout()
+
+Otherwise
+
+else
+
+Display
+
+desktopLayout()
+
+This is called
+
+Responsive Breakpoints
+
+Diagram:
+
+0 --------600--------1024------------------>
+
+ Mobile      Tablet          Desktop
+Scaffold
+return Scaffold(
+
+Scaffold gives the basic page structure.
+
+It contains
+
+AppBar
+
+Body
+
+Drawer
+
+Floating Button
+
+Bottom Navigation
+AppBar
+appBar: AppBar(
+
+Creates the top application bar.
+
+title: const Text("Responsive UI"),
+
+Displays
+
+Responsive UI
+
+at the top.
+
+centerTitle: true,
+
+Centers the title.
+
+Body
+body: body,
+
+Displays whichever layout was selected.
+
+Could be
+
+ListView
+
+GridView
+
+Desktop Grid
+Mobile Layout
+Widget mobileLayout()
+
+Returns
+
+ListView
+
+A ListView displays items vertically.
+
+Example
+
+Item1
+
+Item2
+
+Item3
+
+Item4
+
+Padding
+
+padding: const EdgeInsets.all(16),
+
+Adds
+
+16 pixels
+
+on every side.
+
+Generate Items
+
+List.generate(
+    6,
+
+Automatically creates
+
+6 widgets
+
+instead of writing them manually.
+
+Equivalent to
+
+Item1
+
+Item2
+
+Item3
+
+...
+
+Item6
+
+Each Item
+
+Card(
+
+Creates a Material Card.
+
+Looks like
+
++----------------------+
+
+ Mobile Item 1
+
++----------------------+
+
+ListTile
+
+ListTile(
+
+A ready-made row.
+
+Contains
+
+Icon
+
+Title
+
+Subtitle
+
+Trailing Icon
+
+Leading Icon
+
+leading: const Icon(Icons.phone_android),
+
+Shows
+
+📱
+
+Title
+
+title: Text("Mobile Item ${index + 1}")
+
+${} is string interpolation.
+
+If
+
+index=0
+
+Output
+
+Mobile Item 1
+
+If
+
+index=5
+
+Output
+Mobile Item 6
+Tablet Layout
+Widget tabletLayout()
+
+Returns
+
+GridView.count instead of ListView.
+
+Grid
+crossAxisCount: 2, Means
+
+2 columns Layout
+Item1 Item2
+Item3 Item4
+Item5 Item6
+
+Spacing
+crossAxisSpacing
+Space between columns.
+
+mainAxisSpacing
+Space between rows.
+
+Card
+elevation: 4
+Adds shadow.
+Larger value
+↓
+More shadow.
+
+Center Widget
+Center(
+Centers the text.
+
+Text
+style: TextStyle(fontSize:20)
+Makes text larger.
+Desktop Layout
+Same as tablet.
+Only differences
+crossAxisCount:4
+
+Now
+
+4 columns
+
+Layout
+
+1 2 3 4
+
+5 6 7 8
+padding:20
+
+More spacing.
+
+fontSize:22
+
+Larger text.
+
+elevation:5
+
+More shadow.
+
+Creates 8 cards instead of 6 cards
+
+Overall Execution Flow
+Program Starts
+      │
+      ▼
+main()
+      │
+      ▼
+runApp(MyApp)
+      │
+      ▼
+MaterialApp
+      │
+      ▼
+ResponsiveHome
+      │
+      ▼
+MediaQuery gets screen width
+      │
+      ▼
+Is width < 600?
+      │
+ ┌────┴────┐
+ │         │
+Yes        No
+ │         │
+ ▼         ▼
+Mobile   Width <1024?
+             │
+       ┌─────┴─────┐
+       │           │
+      Yes          No
+       │           │
+       ▼           ▼
+ Tablet Layout  Desktop Layout
+       │           │
+       └─────┬─────┘
+             ▼
+         Display UI
+        
+
+Final Output on Different Devices
+Mobile (width < 600 px): A vertically scrollable ListView with 6 cards, each showing a phone icon and "Mobile Item 1–6".
+Tablet (600–1023 px): A GridView with 2 columns displaying 6 cards labeled "Tablet Item 1–6".
+Desktop (1024 px and above): A GridView with 4 columns displaying 8 larger cards labeled "Desktop Item 1–8".

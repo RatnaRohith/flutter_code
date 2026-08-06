@@ -1,0 +1,371 @@
+Purpose
+If the screen width is less than 600 pixels, display a ListView (mobile layout).
+If the screen width is 600 pixels or more, display a GridView (tablet/desktop layout).
+Step 1: Import Material Package
+import 'package:flutter/material.dart';
+Explanation
+
+This imports Flutter's Material Design library, which contains widgets like:
+
+MaterialApp
+Scaffold
+AppBar
+Card
+ListView
+GridView
+Icon
+Text
+
+Without this import, these widgets cannot be used.
+
+Step 2: main() Function
+void main() {
+  runApp(const MyApp());
+}
+Explanation
+
+Every Flutter application starts execution from the main() function.
+
+runApp() launches the Flutter application.
+
+main()
+   │
+   ▼
+runApp(MyApp)
+Step 3: MyApp Class
+class MyApp extends StatelessWidget {
+Explanation
+
+MyApp is the root widget of the application.
+
+It extends StatelessWidget, meaning:
+
+It has no mutable state.
+Its UI only changes when Flutter rebuilds it due to external changes.
+Step 4: Constructor
+const MyApp({super.key});
+Explanation
+const creates an immutable widget, improving performance.
+super.key passes the widget key to the parent class, helping Flutter efficiently identify widgets during rebuilds.
+Step 5: build() Method
+@override
+Widget build(BuildContext context)
+Explanation
+
+Every widget must implement a build() method.
+
+It returns the widget tree that Flutter displays on the screen.
+
+Step 6: MaterialApp
+return MaterialApp(
+Explanation
+
+MaterialApp is the root widget for a Material Design application.
+
+It provides:
+
+Themes
+Navigation
+Routing
+Material styling
+Step 7: Remove Debug Banner
+debugShowCheckedModeBanner: false,
+
+Removes the red DEBUG banner that appears in debug mode.
+
+Step 8: Home Screen
+home: const ResponsiveUI(),
+
+This tells Flutter that ResponsiveUI is the first screen shown when the app starts.
+
+Step 9: ResponsiveUI Class
+class ResponsiveUI extends StatelessWidget {
+
+This widget decides which layout to display based on the screen width.
+
+Step 10: Get Screen Width
+double screenWidth = MediaQuery.of(context).size.width;
+Explanation
+
+MediaQuery provides information about the current device.
+
+Examples:
+
+Property	Meaning
+size.width	Screen width
+size.height	Screen height
+orientation	Portrait or landscape
+
+Example values:
+
+Mobile → 390
+Tablet → 800
+Desktop → 1366
+Step 11: Scaffold
+return Scaffold(
+
+Scaffold provides the basic page structure.
+
+It can contain:
+
+AppBar
+Body
+Drawer
+Floating Action Button
+Bottom Navigation Bar
+Step 12: AppBar
+appBar: AppBar(
+
+Creates the top application bar.
+
+title: const Text("Responsive UI"),
+
+Displays:
+
+Responsive UI
+centerTitle: true,
+
+Centers the title in the AppBar.
+
+Step 13: Ternary Operator
+body: screenWidth < 600
+    ? buildMobileLayout()
+    : buildTabletLayout(),
+
+This uses Dart's ternary operator.
+
+General syntax:
+
+condition ? valueIfTrue : valueIfFalse;
+
+In this program:
+
+screenWidth < 600
+
+If true:
+
+buildMobileLayout()
+
+If false:
+
+buildTabletLayout()
+
+Equivalent if-else code:
+
+if (screenWidth < 600) {
+    body = buildMobileLayout();
+} else {
+    body = buildTabletLayout();
+}
+Step 14: Mobile Layout
+Widget buildMobileLayout()
+
+Returns a ListView.
+
+return ListView(
+
+ListView arranges widgets vertically and supports scrolling.
+
+Padding
+padding: const EdgeInsets.all(16),
+
+Adds 16 pixels of space around the list.
+
+Children
+children: [
+
+Contains three cards:
+
+buildCard(Icons.home, "Home")
+buildCard(Icons.person, "Profile")
+buildCard(Icons.settings, "Settings")
+
+The screen looks like:
+
++-------------------+
+🏠 Home
++-------------------+
+
++-------------------+
+👤 Profile
++-------------------+
+
++-------------------+
+⚙ Settings
++-------------------+
+Step 15: Tablet Layout
+Widget buildTabletLayout()
+
+Returns a GridView.
+
+GridView.count(
+
+GridView.count creates a grid with a fixed number of columns.
+
+Padding
+padding: const EdgeInsets.all(20),
+
+Adds spacing around the grid.
+
+Columns
+crossAxisCount: 3,
+
+Creates 3 columns.
+
+Layout:
+
+Home      Profile     Settings
+
+Favorites Notifications Cart
+Column Spacing
+crossAxisSpacing: 20,
+
+Adds 20 pixels between columns.
+
+Row Spacing
+mainAxisSpacing: 20,
+
+Adds 20 pixels between rows.
+
+Step 16: buildCard()
+Widget buildCard(
+    IconData icon,
+    String title
+)
+
+This is a reusable method that creates a card.
+
+Instead of writing the same card multiple times, it accepts:
+
+an icon
+a title
+
+and returns a complete card widget.
+
+Example call:
+
+buildCard(Icons.home, "Home")
+Card Widget
+Card(
+
+Displays a Material Design card.
+
+Shadow
+elevation: 5,
+
+Adds a shadow.
+
+Higher values create a deeper shadow effect.
+
+Center
+Center(
+
+Centers everything inside the card.
+
+Column
+Column(
+
+Arranges widgets vertically.
+
+Icon
+
+Text
+Center Alignment
+mainAxisAlignment:
+MainAxisAlignment.center
+
+Centers the column vertically within the card.
+
+Icon
+Icon(icon, size: 50)
+
+Displays the icon passed to buildCard().
+
+Examples:
+
+🏠 Home
+👤 Profile
+⚙ Settings
+SizedBox
+SizedBox(height: 10)
+
+Creates a 10-pixel vertical gap between the icon and the text.
+
+Text
+Text(
+    title,
+    style:
+    TextStyle(fontSize:20)
+)
+
+Displays the title passed to buildCard() with a font size of 20.
+
+Execution Flow
+Program Starts
+      │
+      ▼
+main()
+      │
+      ▼
+runApp(MyApp)
+      │
+      ▼
+MaterialApp
+      │
+      ▼
+ResponsiveUI
+      │
+      ▼
+MediaQuery gets screen width
+      │
+      ▼
+Is screenWidth < 600?
+      │
+ ┌────┴─────┐
+ │          │
+Yes         No
+ │          │
+ ▼          ▼
+ListView   GridView
+ │          │
+ ▼          ▼
+Display Responsive UI
+Expected Output
+Mobile (width < 600 px)
+---------------------
+ Responsive UI
+---------------------
+
+🏠 Home
+
+👤 Profile
+
+⚙ Settings
+
+A vertical, scrollable list with three cards.
+
+Tablet/Desktop (width ≥ 600 px)
+----------------------------
+ Responsive UI
+----------------------------
+
+🏠 Home      👤 Profile      ⚙ Settings
+
+❤️ Favorites 🔔 Notifications 🛒 Cart
+
+A grid with three columns and six cards.
+
+Key Concepts Demonstrated
+Concept	Purpose
+MaterialApp	Root widget of the app
+Scaffold	Basic page layout
+MediaQuery	Reads device size
+StatelessWidget	Widget without mutable state
+ListView	Vertical scrolling layout
+GridView.count	Grid with fixed columns
+Card	Material Design card
+Column	Vertical arrangement of widgets
+Center	Centers child widgets
+SizedBox	Adds spacing
+Icon	Displays Material icons
+Ternary Operator (? :)	Chooses mobile or tablet layout based on screen width
