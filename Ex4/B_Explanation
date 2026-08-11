@@ -1,0 +1,500 @@
+1. Import Flutter
+import 'package:flutter/material.dart';
+import means we are bringing functionality from another library into our program.
+package:flutter/material.dart contains Flutter's Material Design widgets.
+Because we use widgets such as MaterialApp, Scaffold, AppBar, Text, and ElevatedButton, we need this import.
+2. main() function
+void main() {
+  runApp(const MyApp());
+}
+void main()
+void main()
+main() is the starting point of every Dart program.
+Flutter starts executing our application from here.
+void means this function does not return a value.
+runApp()
+runApp(const MyApp());
+runApp() tells Flutter:
+
+"Start displaying this widget as the root of my application."
+
+MyApp is our main application widget.
+const tells Flutter that this widget can be created as a compile-time constant because its contents are immutable.
+
+So:
+
+main()
+  ↓
+runApp()
+  ↓
+MyApp
+  ↓
+MaterialApp
+3. Creating MyApp
+class MyApp extends StatelessWidget {
+
+This creates a class called MyApp.
+
+class
+
+class is used to create an object/class in Dart.
+
+extends
+extends StatelessWidget
+
+means:
+
+MyApp inherits the functionality of Flutter's StatelessWidget.
+
+A StatelessWidget is a widget whose UI does not maintain changing state.
+
+4. Constructor
+const MyApp({super.key});
+
+This is the constructor of MyApp.
+
+const
+
+Allows Flutter to create MyApp as a constant widget.
+
+{super.key}
+
+key is used by Flutter to identify widgets.
+
+super.key passes the key to the parent class, StatelessWidget.
+
+For now, you can think of it as standard Flutter boilerplate.
+
+5. The build() method
+@override
+Widget build(BuildContext context) {
+@override
+
+This tells Dart:
+
+"I am replacing the build() method inherited from StatelessWidget."
+
+Widget
+
+The method returns a Flutter widget.
+
+build()
+
+Flutter calls build() when it needs to create the UI.
+
+BuildContext context
+
+context provides information about where this widget exists in the widget tree.
+
+It is particularly important for navigation:
+
+Navigator.pushNamed(context, '/about');
+6. MaterialApp
+return MaterialApp(
+
+MaterialApp is the main container for a Material Design Flutter application.
+
+It provides things such as:
+
+navigation
+themes
+routes
+app-level configuration
+Material Design behavior
+7. Hide debug banner
+debugShowCheckedModeBanner: false,
+
+Flutter normally displays:
+
+DEBUG
+
+in the top-right corner while developing.
+
+Setting:
+
+false
+
+hides it.
+
+8. Application title
+title: 'Named Routes Demo',
+
+This gives the application a title.
+
+It is useful for things such as the application metadata and window title on some platforms.
+
+9. initialRoute
+initialRoute: '/',
+
+This is an important part of named navigation.
+
+It tells Flutter:
+
+"When the application starts, open the route /."
+
+We later define / as the Home Page.
+
+So:
+
+Application starts
+       ↓
+initialRoute: '/'
+       ↓
+HomePage
+10. Defining named routes
+routes: {
+
+This creates a map of route names to widgets.
+
+Think of it as a navigation dictionary:
+
+Route name       Screen
+-------------------------
+/                HomePage
+/about           AboutPage
+/contact         ContactPage
+11. Home route
+'/': (context) => const HomePage(),
+
+This says:
+
+When Flutter receives the route name /, display HomePage.
+
+The / is commonly used for the application's home/root screen.
+
+12. About route
+'/about': (context) => const AboutPage(),
+
+This defines a route called:
+
+/about
+
+and associates it with:
+
+AboutPage()
+
+Therefore:
+
+Navigator.pushNamed(context, '/about');
+
+will open AboutPage.
+
+13. Contact route
+'/contact': (context) => const ContactPage(),
+
+Similarly, this creates:
+
+/contact
+
+and associates it with:
+
+ContactPage()
+
+So:
+
+Navigator.pushNamed(context, '/contact');
+
+opens the Contact Page.
+
+14. Closing routes
+},
+
+This closes the route map.
+
+Then:
+
+);
+
+closes MaterialApp.
+
+And:
+
+}
+
+closes the build() method.
+
+15. Creating the Home Page
+class HomePage extends StatelessWidget {
+
+We create another widget called HomePage.
+
+It is a StatelessWidget because the page doesn't currently contain changing data.
+
+16. HomePage constructor
+const HomePage({super.key});
+
+This is the constructor for HomePage.
+
+Again, super.key passes the widget key to the parent class.
+
+17. HomePage build()
+@override
+Widget build(BuildContext context) {
+
+Flutter calls this method to determine what the Home Page should look like.
+
+18. Scaffold
+return Scaffold(
+
+Scaffold provides the basic structure of a Material Design screen.
+
+It can contain:
+
+appBar
+body
+drawer
+floatingActionButton
+bottomNavigationBar
+
+and more.
+
+19. App bar
+appBar: AppBar(
+  title: const Text('Home Page'),
+),
+
+This creates the top bar.
+
+The title displayed is:
+
+Home Page
+
+The Text widget displays text.
+
+20. Body
+body: Center(
+
+The body contains the main content of the screen.
+
+Center positions its child in the center of the available space.
+
+21. Column
+child: Column(
+
+Column arranges widgets vertically.
+
+For example:
+
+Welcome to Home Page
+
+Go to About
+
+Go to Contact
+22. Center the Column vertically
+mainAxisAlignment: MainAxisAlignment.center,
+
+A Column has a vertical main axis.
+
+This tells Flutter to put the children in the center of that vertical space.
+
+23. Text
+const Text(
+  'Welcome to Home Page',
+  style: TextStyle(fontSize: 24),
+),
+
+This displays:
+
+Welcome to Home Page
+
+The font size is:
+
+24
+24. SizedBox
+const SizedBox(height: 20),
+
+This creates 20 pixels of vertical space.
+
+It is commonly used to create gaps between widgets.
+
+25. About button
+ElevatedButton(
+
+Creates a clickable button.
+
+The button contains:
+
+child: const Text('Go to About'),
+
+so the user sees:
+
+Go to About
+26. onPressed
+onPressed: () {
+
+This code runs when the user presses the button.
+
+The () { } is an anonymous function.
+
+In simple terms:
+
+"When this button is clicked, execute the code inside these braces."
+
+27. Navigate to About
+Navigator.pushNamed(context, '/about');
+
+This is the most important line for named navigation.
+
+Navigator manages the pages/screens in your application.
+
+pushNamed() means:
+
+"Push a page onto the navigation stack using its route name."
+
+Here:
+
+'/about'
+
+matches:
+
+'/about': (context) => const AboutPage(),
+
+Therefore:
+
+User clicks button
+       ↓
+pushNamed(context, '/about')
+       ↓
+Flutter searches routes
+       ↓
+'/about'
+       ↓
+AboutPage
+28. Contact button
+
+The second button works similarly:
+
+ElevatedButton(
+  onPressed: () {
+    Navigator.pushNamed(context, '/contact');
+  },
+  child: const Text('Go to Contact'),
+),
+
+When the user clicks it:
+
+Navigator.pushNamed(context, '/contact');
+
+Flutter finds:
+
+'/contact': (context) => const ContactPage(),
+
+and displays ContactPage.
+
+29. About Page
+class AboutPage extends StatelessWidget {
+
+Creates the About Page widget.
+
+Its structure is similar to HomePage.
+
+return Scaffold(
+  appBar: AppBar(
+    title: const Text('About Page'),
+  ),
+
+This creates an AppBar containing:
+
+About Page
+30. Back button on About Page
+ElevatedButton(
+  onPressed: () {
+    Navigator.pop(context);
+  },
+  child: const Text('Back to Home'),
+),
+
+Here we use:
+
+Navigator.pop(context);
+
+pop() removes the current page from the navigation stack.
+
+Suppose the stack is:
+
+Home
+  ↓
+About
+
+After:
+
+Navigator.pop(context);
+
+it becomes:
+
+Home
+
+So the user returns to Home.
+
+31. Contact Page
+class ContactPage extends StatelessWidget {
+
+Creates the Contact Page.
+
+Again, it contains a Scaffold, AppBar, and button.
+
+The button uses:
+
+Navigator.pop(context);
+
+to return to the previous page.
+
+32. The complete navigation concept
+
+The most important thing to understand is the navigation stack.
+
+Initially:
+
+┌──────────────┐
+│     Home     │
+└──────────────┘
+
+User clicks Go to About:
+
+┌──────────────┐
+│    About     │ ← current page
+├──────────────┤
+│     Home     │
+└──────────────┘
+
+This happens because:
+
+Navigator.pushNamed(context, '/about');
+
+Then the user clicks Back:
+
+Navigator.pop(context);
+
+Flutter removes About:
+
+┌──────────────┐
+│     Home     │ ← current page
+└──────────────┘
+33. The three most important lines
+
+For named routes, remember these three concepts:
+
+Define routes
+routes: {
+  '/': (context) => const HomePage(),
+  '/about': (context) => const AboutPage(),
+  '/contact': (context) => const ContactPage(),
+},
+Go to another page
+Navigator.pushNamed(context, '/about');
+Go back
+Navigator.pop(context);
+
+So the basic pattern is:
+
+Define route
+     ↓
+pushNamed()
+     ↓
+New screen
+     ↓
+pop()
+     ↓
+Previous screen
+
+One important distinction: with normal Navigator.push(), you directly specify the widget/page to open. With named routes, you first give each page a route name and then navigate using that name. This becomes especially useful when your Flutter application has many screens.

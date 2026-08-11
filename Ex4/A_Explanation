@@ -1,0 +1,556 @@
+1. Import Flutter
+import 'package:flutter/material.dart';
+
+Line 1
+
+import tells Dart that we want to use code from another library.
+package:flutter/material.dart is Flutter's Material Design library.
+It gives us widgets such as:
+MaterialApp
+Scaffold
+AppBar
+Text
+ElevatedButton
+Center
+Navigator
+
+Without this line, most of the Flutter widgets in our program would not be available.
+
+2. main() function
+void main() {
+  runApp(const MyApp());
+}
+void
+void
+
+Means this function doesn't return a value.
+
+main()
+main()
+
+main() is the starting point of every Dart application.
+
+When you run the Flutter application, Dart starts execution from main().
+
+{ }
+{
+  ...
+}
+
+These braces contain the code belonging to the main() function.
+
+runApp()
+runApp(...)
+
+runApp() tells Flutter:
+
+"Start my application using this widget."
+
+const MyApp()
+const MyApp()
+
+Creates an instance of our MyApp widget.
+
+So:
+
+runApp(const MyApp());
+
+basically means:
+
+Start the Flutter application with MyApp.
+
+3. Creating MyApp
+class MyApp extends StatelessWidget {
+class
+class MyApp
+
+Creates a class called MyApp.
+
+extends
+extends StatelessWidget
+
+Means MyApp inherits from Flutter's StatelessWidget.
+
+A StatelessWidget is a widget whose UI doesn't maintain changing state.
+
+So:
+
+class MyApp extends StatelessWidget
+
+means:
+
+Create a Flutter widget called MyApp that behaves as a stateless widget.
+
+4. Constructor
+const MyApp({super.key});
+
+This is the constructor for MyApp.
+
+const
+
+Allows Flutter/Dart to create the widget as a compile-time constant when possible.
+
+super.key
+
+Passes the widget's key to the parent class, StatelessWidget.
+
+For now, you can think of key as an identifier Flutter can use to distinguish widgets.
+
+5. build() method
+@override
+Widget build(BuildContext context) {
+
+This is one of the most important parts of a Flutter widget.
+
+@override
+@override
+
+Means:
+
+We are replacing/implementing a method that already exists in the parent class.
+
+StatelessWidget requires us to implement build().
+
+Widget
+Widget
+
+The build() method returns a Flutter widget.
+
+build()
+build()
+
+Flutter calls this method to determine what should appear on the screen.
+
+BuildContext context
+BuildContext context
+
+context contains information about where this widget exists in Flutter's widget tree.
+
+For navigation, we will use this context.
+
+6. MaterialApp
+return MaterialApp(
+
+The build() method returns a MaterialApp.
+
+MaterialApp provides the basic structure/configuration for a Material Design Flutter application.
+
+7. Disable debug banner
+debugShowCheckedModeBanner: false,
+
+Flutter normally displays a DEBUG banner in the top-right corner during development.
+
+Setting:
+
+false
+
+removes that banner.
+
+8. Application title
+title: "Navigator Demo",
+
+Sets the application's title.
+
+Here the title is:
+
+Navigator Demo
+9. Set the first screen
+home: const HomeScreen(),
+
+This is important for navigation.
+
+home specifies the first screen displayed when the application starts.
+
+Here:
+
+HomeScreen()
+
+is our first page.
+
+So the application starts like this:
+
+MyApp
+  ↓
+MaterialApp
+  ↓
+HomeScreen
+10. Closing MaterialApp
+);
+
+This closes the MaterialApp.
+
+So the complete section is:
+
+return MaterialApp(
+  debugShowCheckedModeBanner: false,
+  title: "Navigator Demo",
+  home: const HomeScreen(),
+);
+11. Closing build()
+}
+
+This closes the build() method.
+
+12. Closing MyApp
+}
+
+This closes the MyApp class.
+
+13. Creating HomeScreen
+
+Now we create the first screen.
+
+class HomeScreen extends StatelessWidget {
+
+We create a class called HomeScreen.
+
+It also extends StatelessWidget.
+
+So:
+
+MyApp
+ └── HomeScreen
+14. HomeScreen constructor
+const HomeScreen({super.key});
+
+This is the constructor for HomeScreen.
+
+Again:
+
+const → allows constant construction.
+super.key → passes the key to the parent widget.
+15. HomeScreen build()
+@override
+Widget build(BuildContext context) {
+
+Flutter calls this method to build the Home Screen.
+
+16. Scaffold
+return Scaffold(
+
+Scaffold provides the basic visual structure of a screen.
+
+It can contain:
+
+Scaffold
+ ├── AppBar
+ ├── Body
+ ├── FloatingActionButton
+ ├── Drawer
+ └── BottomNavigationBar
+
+Here we're using AppBar and body.
+
+17. AppBar
+appBar: AppBar(
+
+Creates the top application bar.
+
+18. AppBar title
+title: const Text("Home Screen"),
+
+Displays:
+
+Home Screen
+
+in the AppBar.
+
+Text() creates a text widget.
+
+19. AppBar color
+backgroundColor: Colors.blue,
+
+Sets the AppBar's background color to blue.
+
+20. Close AppBar
+),
+
+Closes the AppBar.
+
+21. Body
+body: Center(
+
+The body contains the main content of the screen.
+
+We're using Center so that its child appears in the center.
+
+22. Button
+child: ElevatedButton(
+
+The child of Center is an ElevatedButton.
+
+So the structure is:
+
+Scaffold
+ ├── AppBar
+ └── Body
+      └── Center
+           └── ElevatedButton
+23. Button text
+child: const Text("Go to Second Screen"),
+
+The button displays:
+
+Go to Second Screen
+24. Button action
+onPressed: () {
+
+This is extremely important.
+
+onPressed specifies:
+
+What should happen when the user presses the button?
+
+() {
+   ...
+}
+
+is an anonymous function.
+
+The code inside this function runs when the button is clicked.
+
+25. Navigator.push()
+Navigator.push(
+
+This is the actual navigation command.
+
+push() means:
+
+Put a new screen on top of the current screen.
+
+Before:
+
+HomeScreen
+
+After push():
+
+SecondScreen
+HomeScreen
+
+The Second Screen is now on top.
+
+26. context
+context,
+
+We pass the current BuildContext to the Navigator.
+
+Flutter uses this context to find the appropriate Navigator.
+
+27. MaterialPageRoute
+MaterialPageRoute(
+
+This creates a route to the next screen.
+
+A route represents a screen/page in Flutter's navigation system.
+
+28. builder
+builder: (context) => const SecondScreen(),
+
+This tells Flutter:
+
+When this route is opened, build and display SecondScreen.
+
+The arrow:
+
+=>
+
+is a short form of returning a value.
+
+This:
+
+(context) => const SecondScreen()
+
+is essentially:
+
+(context) {
+  return const SecondScreen();
+}
+29. Close the route
+),
+
+Closes MaterialPageRoute.
+
+30. Close Navigator.push
+);
+
+Closes Navigator.push().
+
+So the entire navigation code is:
+
+Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (context) => const SecondScreen(),
+  ),
+);
+
+This means:
+
+"Navigate from the current screen to SecondScreen."
+
+31. Close onPressed
+},
+
+The button's function ends here.
+
+32. Close button
+),
+
+Closes ElevatedButton.
+
+33. Close Center
+),
+
+Closes Center.
+
+34. Close Scaffold
+);
+
+Closes Scaffold.
+
+35. Second Screen
+
+Now we create another screen.
+
+class SecondScreen extends StatelessWidget {
+
+This creates a new widget called SecondScreen.
+
+36. Constructor
+const SecondScreen({super.key});
+
+Constructor for SecondScreen.
+
+37. Build method
+@override
+Widget build(BuildContext context) {
+
+Builds the second screen.
+
+38. Second Scaffold
+return Scaffold(
+
+Creates the basic screen structure.
+
+39. Second AppBar
+appBar: AppBar(
+  title: const Text("Second Screen"),
+  backgroundColor: Colors.green,
+),
+
+Creates an AppBar that looks like:
+
+┌──────────────────────────────┐
+│ Second Screen                │
+└──────────────────────────────┘
+
+with a green background.
+
+40. Second Screen Body
+body: Center(
+
+Places the button in the center.
+
+41. Go Back button
+child: ElevatedButton(
+  child: const Text("Go Back"),
+
+Creates a button saying:
+
+Go Back
+42. Navigator.pop()
+
+This is the most important line on the second screen:
+
+Navigator.pop(context);
+
+pop() means:
+
+Remove the current screen from the navigation stack.
+
+Remember our stack:
+
+SecondScreen   ← current
+HomeScreen
+
+After:
+
+Navigator.pop(context);
+
+the stack becomes:
+
+HomeScreen     ← current
+
+So the user returns to HomeScreen.
+
+Complete Flow
+
+The entire application works like this:
+
+              Application starts
+                     │
+                     ▼
+                  main()
+                     │
+                     ▼
+                runApp()
+                     │
+                     ▼
+                  MyApp
+                     │
+                     ▼
+               MaterialApp
+                     │
+                     ▼
+                HomeScreen
+                     │
+             Press button
+                     │
+                     ▼
+            Navigator.push()
+                     │
+                     ▼
+              SecondScreen
+                     │
+             Press Go Back
+                     │
+                     ▼
+            Navigator.pop()
+                     │
+                     ▼
+                HomeScreen
+The two most important concepts
+push() = Go forward
+Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (context) => const SecondScreen(),
+  ),
+);
+
+Think:
+
+Push = Open a new page
+
+pop() = Go backward
+Navigator.pop(context);
+
+Think:
+
+Pop = Close the current page
+
+A useful way to remember it is:
+
+Navigator Stack
+
+        ┌───────────────┐
+        │ SecondScreen  │ ← push adds this
+        ├───────────────┤
+        │ HomeScreen    │
+        └───────────────┘
+
+                 ↓ pop
+
+        ┌───────────────┐
+        │ HomeScreen    │ ← back here
+        └───────────────┘
