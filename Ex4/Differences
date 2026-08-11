@@ -1,0 +1,121 @@
+In Flutter, Navigator with direct routes and named routes both help you move between screens. The main difference is how you identify the destination screen.
+
+1. Navigator with direct routes
+
+You directly create the destination widget when navigating.
+
+Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (context) => const AboutPage(),
+  ),
+);
+
+Here, Flutter navigates directly to AboutPage.
+
+Example:
+
+ElevatedButton(
+  onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const AboutPage(),
+      ),
+    );
+  },
+  child: const Text("Go to About"),
+)
+
+Advantages
+
+Simple and easy for beginners.
+Good for small applications.
+You can easily pass data to the next screen.
+Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (context) => DetailsPage(id: 10),
+  ),
+);
+
+Disadvantages
+
+Route definitions can become scattered throughout the application.
+Repeated navigation code can make large applications harder to maintain.
+2. Named routes
+
+You define routes centrally inside MaterialApp and navigate using a string name.
+
+MaterialApp(
+  initialRoute: '/',
+  routes: {
+    '/': (context) => const HomePage(),
+    '/about': (context) => const AboutPage(),
+    '/contact': (context) => const ContactPage(),
+  },
+);
+
+Then navigate using:
+
+Navigator.pushNamed(context, '/about');
+
+For example:
+
+ElevatedButton(
+  onPressed: () {
+    Navigator.pushNamed(context, '/about');
+  },
+  child: const Text("Go to About"),
+)
+
+You can also go to the contact page:
+
+Navigator.pushNamed(context, '/contact');
+Direct Navigator vs Named Routes
+Feature	Direct Navigator.push	Named Routes
+Navigation	MaterialPageRoute	Route name
+Example	AboutPage()	'/about'
+Route definition	At navigation point	Usually centralized
+Small applications	⭐⭐⭐⭐⭐	⭐⭐⭐⭐
+Large applications	⭐⭐⭐	⭐⭐⭐⭐
+Easy to understand	Very easy	Easy
+Passing data	Very easy	Requires extra handling
+Centralized routes	❌	✅
+Deep linking	More work	Better suited, though modern apps often use Router APIs
+Boilerplate	More at each navigation point	More setup initially
+Simple way to remember
+
+Navigator.push = "Go to this widget"
+
+Navigator.push(
+  context,
+  MaterialPageRoute(builder: (_) => AboutPage()),
+);
+
+Named route = "Go to the route called /about"
+
+Navigator.pushNamed(context, '/about');
+Which should you use?
+
+Since you're learning Flutter and building applications with Home, About, and Contact pages, I'd recommend learning them in this order:
+
+First: Navigator.push() → understand how Flutter's navigation stack works.
+
+Then: Named routes → understand centralized route management.
+
+For a simple project:
+
+Home
+ ├── Navigator.push() → About
+ └── Navigator.push() → Contact
+
+For a project with centralized routes:
+
+MaterialApp
+   │
+   ├── '/'        → Home
+   ├── '/about'   → About
+   └── '/contact' → Contact
+
+One important modern-Flutter note: for larger applications, Flutter's newer Router-based navigation approaches (such as go_router) are often preferred over relying heavily on classic named routes. But Navigator.push() and named routes are excellent concepts to learn first.
