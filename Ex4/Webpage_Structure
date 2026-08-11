@@ -1,0 +1,280 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'My Website',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+
+      // Starting page
+      initialRoute: '/',
+
+      // Application routes
+      routes: {
+        '/': (context) => const HomePage(),
+        '/about': (context) => const AboutPage(),
+        '/contact': (context) => const ContactPage(),
+      },
+    );
+  }
+}
+
+// ---------------- HOME PAGE ----------------
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('My Website'),
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
+
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/');
+            },
+            child: const Text(
+              'Home',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/about');
+            },
+            child: const Text(
+              'About',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/contact');
+            },
+            child: const Text(
+              'Contact',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+
+          const SizedBox(width: 20),
+        ],
+      ),
+
+      body: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.home,
+              size: 80,
+              color: Colors.blue,
+            ),
+
+            SizedBox(height: 20),
+
+            Text(
+              'Welcome to My Website',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            SizedBox(height: 10),
+
+            Text(
+              'This is the Home Page',
+              style: TextStyle(fontSize: 18),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ---------------- ABOUT PAGE ----------------
+
+class AboutPage extends StatelessWidget {
+  const AboutPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('About'),
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
+
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/');
+            },
+            child: const Text(
+              'Home',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/about');
+            },
+            child: const Text(
+              'About',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/contact');
+            },
+            child: const Text(
+              'Contact',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+
+          const SizedBox(width: 20),
+        ],
+      ),
+
+      body: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.info,
+              size: 80,
+              color: Colors.blue,
+            ),
+
+            SizedBox(height: 20),
+
+            Text(
+              'About Us',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            SizedBox(height: 10),
+
+            Text(
+              'We are learning Flutter development.',
+              style: TextStyle(fontSize: 18),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ---------------- CONTACT PAGE ----------------
+
+class ContactPage extends StatelessWidget {
+  const ContactPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Contact'),
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
+
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/');
+            },
+            child: const Text(
+              'Home',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/about');
+            },
+            child: const Text(
+              'About',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/contact');
+            },
+            child: const Text(
+              'Contact',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+
+          const SizedBox(width: 20),
+        ],
+      ),
+
+      body: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.phone,
+              size: 80,
+              color: Colors.blue,
+            ),
+
+            SizedBox(height: 20),
+
+            Text(
+              'Contact Us',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            SizedBox(height: 10),
+
+            Text(
+              'Email: example@gmail.com',
+              style: TextStyle(fontSize: 18),
+            ),
+
+            SizedBox(height: 5),
+
+            Text(
+              'Phone: +91 9876543210',
+              style: TextStyle(fontSize: 18),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

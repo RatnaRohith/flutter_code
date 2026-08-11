@@ -1,0 +1,72 @@
+How the navigation works
+
+The important part is this:
+
+routes: {
+  '/': (context) => const HomePage(),
+  '/about': (context) => const AboutPage(),
+  '/contact': (context) => const ContactPage(),
+},
+
+This creates three routes:
+
+/          → HomePage
+/about     → AboutPage
+/contact   → ContactPage
+
+Then, when the user clicks About:
+
+Navigator.pushNamed(context, '/about');
+
+Flutter navigates to:
+
+HomePage
+    ↓
+AboutPage
+
+Similarly:
+
+Navigator.pushNamed(context, '/contact');
+
+opens the Contact page.
+
+What you'll see
+┌─────────────────────────────────────────────────────┐
+│ My Website             Home   About   Contact       │
+├─────────────────────────────────────────────────────┤
+│                                                     │
+│                       🏠                            │
+│                                                     │
+│                Welcome to My Website                │
+│                                                     │
+│                 This is Home Page                   │
+│                                                     │
+└─────────────────────────────────────────────────────┘
+
+Clicking About:
+
+┌─────────────────────────────────────────────────────┐
+│ My Website             Home   About   Contact       │
+├─────────────────────────────────────────────────────┤
+│                                                     │
+│                       ℹ️                            │
+│                                                     │
+│                     About Us                        │
+│                                                     │
+│          We are learning Flutter development.      │
+│                                                     │
+└─────────────────────────────────────────────────────┘
+One important improvement
+
+The above example is intentionally repetitive so you can clearly understand Navigator. In a real project, we would not repeat the navigation bar three times.
+
+The next step should be to create a reusable Navbar widget and make the website responsive, so that:
+
+Desktop
+┌───────────────────────────────────────────┐
+│ Logo       Home   About   Contact          │
+└───────────────────────────────────────────┘
+
+Mobile
+┌──────────────────────┐
+│ My Website       ☰   │
