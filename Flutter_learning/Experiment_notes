@@ -1,0 +1,41 @@
+Flutter Doc
+Exp1
+1. How to install flutter?
+2. Write the code blocks for writing a simple hello world program in flutter
+Sample Code: import - package - material.dart -  flutter application UI library imported
+
+void main - entry point of the flutter application
+runapp(app_name) - execute app_name
+
+class app_name extends stateless widget  - class intilization as a stateless widget
+	const my app(super.key) -  constructor of the flutter class above
+widget build(context) - context(UI logic) for my flutter app
+home: scaffold - entire window of the application
+body: text("Hello world")  - text widget displaying hello world
+Style : widget styling
+
+Exp 2
+widgets -text, textfield, center, column, row, stack, padding, scaffold, container, sizedbox, icon, image, 
+
+Styling
+Text widget -
+Font size,
+color
+fontweight
+textalign
+decoration
+
+Exp 3
+media queries, listview, gridview, cross axis, mainaxis, list.generate, elevation, builder,
+widget body, if condition code block
+
+
+Ex4:
+onpressed, navigator(push,pop), materialpageroute, builder, 
+routes - initial route, routes, navigator,pushNamed, 
+
+Ex5:
+Stateless widget,  stateful widget
+set state, state management, create state, 
+change notifier provider,counter provider, notify listeners,
+
